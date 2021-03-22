@@ -5,13 +5,23 @@ const initialState = {
   items: [],
 };
 
+const createProduct = (data) => {
+  const product = {
+    ...data,
+    id: nanoid(),
+    price: Number(data.price),
+    oldPrice: (data.oldPrice.length) ? Number(data.oldPrice) : null,
+  };
+
+  return product;
+}
+
 const productListSlice = createSlice({
   name: 'productList',
   initialState,
   reducers: {
     addProduct(state, action) {
-      const newItem = { ...action.payload };
-      newItem.id = nanoid();
+      const newItem = createProduct(action.payload);
 
       return { ...state, items: [...state.items, newItem] };
     }

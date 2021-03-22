@@ -4,10 +4,10 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <ProductList />
       <ProductForm />
-    </>
+    </div>
   );
 }
 

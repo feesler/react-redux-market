@@ -1,10 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addProduct } from './productListSlice';
 
-const initialState = {
+const initialValues = {
   name: '',
   price: '',
   oldPrice: '',
   image: null,
+};
+
+const initialValidation = {
+  name: true,
+  price: true,
+  oldPrice: true,
+};
+
+const initialState = {
+  values: { ...initialValues },
+  validation: { ...initialValidation },
 };
 
 const productFormSlice = createSlice({
@@ -13,16 +25,37 @@ const productFormSlice = createSlice({
   reducers: {
     changeField(state, action) {
       const { name, value } = action.payload;
-      return { ...state, [name]: value };
+      return {
+        ...state,
+        values: {
+          ...state.values,
+          [name]: value,
+        },
+        validation: { ...initialValidation },
+      };
     },
-    addProduct() {
-      return { ...initialState };
-    },
+
     resetForm() {
       return { ...initialState };
+    },
+
+    invalidateField(state, action) {
+      const name = action.payload;
+      return {
+        ...state,
+        validation: {
+          ...state.validation,
+          [name]: false,
+        },
+      };
     }
+  },
+  extraReducers: {
+    [addProduct]: () => {
+      return { ...initialState };
+    },
   },
 });
 
-export const { changeField } = productFormSlice.actions;
+export const { changeField, resetForm, invalidateField } = productFormSlice.actions;
 export default productFormSlice.reducer;
