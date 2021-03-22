@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const formatPrice = (value, currency = '₽') => {
+  if (value === null) {
+    return null;
+  }
+
   const num = Number(value);
   if (Number.isNaN(num)) {
     return null;
@@ -19,12 +23,12 @@ const formatDiscount = (price, oldPrice) => {
 function ProductItem(props) {
   const { image, name, price, oldPrice } = props;
 
-  const discount = (oldPrice)
+  const discount = (oldPrice && oldPrice !== price)
     ? <div className="product-item__discount">{formatDiscount(price, oldPrice)}</div>
     : null;
 
   const priceFmt = formatPrice(price);
-  const oldPriceFmt = formatPrice(oldPrice);
+  const oldPriceFmt = (oldPrice && oldPrice !== price) ? formatPrice(oldPrice) : null;
   const imgContent = (image)
     ? <img src={image} alt={name} />
     : <span>No image</span>;
