@@ -26,8 +26,7 @@ function PhotoUploader(props) {
 }
 
 PhotoUploader.propTypes = {
-  onUpload: PropTypes.func.isRequired
+  onUpload: PropTypes.func.isRequired,
 };
 
-export default PhotoUploader
-
+export default PhotoUploader;

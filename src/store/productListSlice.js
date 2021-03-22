@@ -1,15 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
-const initialState = {};
+const initialState = {
+  items: [],
+};
 
 const productListSlice = createSlice({
   name: 'productList',
   initialState,
   reducers: {
-    add(state, action) {
+    addProduct(state, action) {
+      const newItem = { ...action.payload };
+      newItem.id = nanoid();
+
+      return { ...state, items: [...state.items, newItem] };
     }
   },
 });
 
-export const { add } = productListSlice.actions;
+export const { addProduct } = productListSlice.actions;
 export default productListSlice.reducer;

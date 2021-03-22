@@ -1,7 +1,12 @@
+body {
+  background-color: #000000;
+  color: #ececec;
+}
+
 .photo-uploader {
   display: flex;
   position: relative;
-  height: 20rem;
+  height: 3rem;
   margin-bottom: 3rem;
   border: 1px solid #000000;
   border-radius: 1rem;
@@ -23,6 +28,33 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  color: #888888;
+  font-size: 1rem;
+  color: #c1c1c1;
+  background-color: #353535;
+}
+
+.product-form {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 500px;
+}
+
+.form-field {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.product-item {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.product-item__name {
+}
+
+.product-item__price {
+}
+
+.product-item__old-price {
+  text-decoration: line-through;
 }

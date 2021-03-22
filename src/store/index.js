@@ -4,7 +4,7 @@ import productListSlice from './productListSlice';
 
 export default configureStore({
   reducer: {
-    productFormSlice,
-    productListSlice
+    productForm: productFormSlice,
+    productList: productListSlice,
   },
 });
