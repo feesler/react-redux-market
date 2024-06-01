@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ProductItem from './ProductItem';
+import ProductItem from './ProductItem.jsx';
 
 function ProductList() {
   const list = useSelector(state => state.productList);

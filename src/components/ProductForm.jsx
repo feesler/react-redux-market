@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
-import { addProduct } from '../store/productListSlice';
-import { changeField, resetForm, invalidateField } from '../store/productFormSlice';
-import PhotoUploader from './PhotoUploader';
+import { addProduct } from '../store/productListSlice.js';
+import { changeField, resetForm, invalidateField } from '../store/productFormSlice.js';
+import PhotoUploader from './PhotoUploader.jsx';
 
 function ProductForm() {
   const { values, validation } = useSelector(state => state.productForm);

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addProduct } from './productListSlice';
+import { addProduct } from './productListSlice.js';
 
 const initialValues = {
   name: '',
